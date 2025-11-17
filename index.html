@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Solofotahiana Rakotoniaina — Portfolio</title>
+  <meta name="description" content="Portfolio de Solofotahiana RAKOTONIAINA — Développeur web (D-CLIC) | HTML CSS JS" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./script.js"></script>
+  <meta name="theme-color" content="#2b2b2b">
+</head>
+<body>
+  <a id="top"></a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="name">Solofotahiana</span>
+        <span class="surname">RAKOTONIAINA</span>
+      </div>
+      <nav class="nav">
+        <a href="#home" class="nav-link">Accueil</a>
+        <a href="#about" class="nav-link">À propos</a>
+        <a href="#projects" class="nav-link">Projets</a>
+        <a href="#skills" class="nav-link">Compétences</a>
+        <a href="#contact" class="nav-link cta">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <h1>Je suis <span class="accent">Solofotahiana</span>,</h1>
+          <p class="lead">Développeur web débutant — formation <strong>D-CLIC (OIF)</strong>. Passionné par le web, le design et les projets à impact.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#projects">Voir mes projets</a>
+            <a class="btn outline" href="./CV_RAKOTONIAINA_SOLOFOTAHIANA.pdf" download> Télécharger mon CV</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="card-illustration">
+            <img src="./html-css-js.png" alt="Photo de HTML-CSS-JS" class="profile-photo">
+            <div class="code-bubble" aria-hidden="true">
+              <pre><code>&lt;html&gt; &lt;css&gt; &lt;js&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section light">
+      <div class="container section-grid">
+        <div class="about-text reveal">
+          <h2>À propos</h2>
+          <p>Je m'appelle <strong>Solofotahiana Rakotoniaina</strong>. Je suis actuellement en formation D-CLIC (niveau débutant). J'aime transformer des idées en projets concrets et expérimenter avec HTML, CSS et JavaScript.</p>
+          <ul class="about-list">
+            <li><strong>Email :</strong> tahiana.rakotoniaina25@gmail.com</li>
+            <li><strong>Téléphone :</strong> +261 34 60 911 35</li>
+            <li><strong>Localisation :</strong> Antsirabe, Madagascar</li>
+          </ul>
+          <a class="btn primary" href="./CV_RAKOTONIAINA_SOLOFOTAHIANA.pdf" download>Voir/Téléchager CV</a>
+        </div>
+        <div class="about-photo reveal">
+          <div class="photo-frame">
+            <img src="./Tahiana.png" alt="Photo professionnelle" />
+          </div>
+          <div class="small-cards">
+            <div class="info-card">
+              <h4>Expérience</h4>
+              <br>Chef de projet 5CPV — ONG DEFI / Mise en place d'un Centre Informatique Villageois dans les villages enclavés à Madagascar</p>
+            </div>
+            <div class="info-card">
+              <h4>Formation</h4>
+              <p>Master 2 — Science & Ingénierie des matériaux</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="center reveal">Mes Projets</h2>
+        <p class="subcenter reveal">Exemples de petits projets réalisés lors de la formation (HTML/CSS/JS)</p>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <h3>Calculateur de prêt</h3>
+            <p>Un outil simple et efficace pour calculer les mensualités d’un prêt bancaire à partir du montant, du taux et de la durée.</p>
+            <p class="tags">#html #css #js</p>
+            <div class="project-cta">
+              <a class="btn outline" href="./Calculateur.html" target="_blank">Voir</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <h3>Portfolio (ce site)</h3>
+            <p>Design responsive, animations JS, validation du formulaire.</p>
+            <p class="tags">#responsive #accessibilité</p>
+            <div class="project-cta">
+              <a class="btn outline" href="#" target="_blank">Voir</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <h3>Manipulation de Dates</h3>
+            <p>Un outil interactif permettant d’extraire le jour, le mois et l’année d’une date saisie, ainsi que de calculer la différence en jours avec la date actuelle.</p>
+            <p class="tags">#html #css #js</p>
+            <div class="project-cta">
+              <a class="btn outline" href="./manipulation de dates.html" target="_blank">Voir</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section light">
+      <div class="container">
+        <h2 class="center reveal">Mes Compétences</h2>
+        <div class="skills-grid">
+          <div class="skill-box reveal">
+            <h4>Hard Skills</h4>
+            <div class="skill">
+              <span>HTML</span>
+              <div class="skill-bar" data-level="95"><span></span></div>
+            </div>
+            <div class="skill">
+              <span>CSS</span>
+              <div class="skill-bar" data-level="85"><span></span></div>
+            </div>
+            <div class="skill">
+              <span>JavaScript</span>
+              <div class="skill-bar" data-level="70"><span></span></div>
+            </div>
+            <div class="skill">
+              <span>VS Code</span>
+              <div class="skill-bar" data-level="80"><span></span></div>
+            </div>
+          </div>
+          <div class="skill-box reveal">
+            <h4>Soft Skills</h4>
+            <div class="skill">
+              <span>Gestion de projet</span>
+              <div class="skill-bar" data-level="80"><span></span></div>
+            </div>
+            <div class="skill">
+              <span>Résolution de problème</span>
+              <div class="skill-bar" data-level="75"><span></span></div>
+            </div>
+            <div class="skill">
+              <span>Adaptabilité</span>
+              <div class="skill-bar" data-level="85"><span></span></div>
+            </div>
+            <div class="skill">
+              <span>Communication</span>
+              <div class="skill-bar" data-level="85"><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section dark-cta">
+      <div class="container contact-grid">
+        <div class="contact-left reveal">
+          <h2>Vous avez un projet en tête ?</h2>
+          <p>N'hésitez pas à me contacter — je réponds rapidement.</p>
+          <ul class="contact-info">
+            <li>📧 tahiana.rakotoniaina25@gmail.com</li>
+            <li>📞 +261 34 60 911 35</li>
+            <li>📍 Antsirabe, Madagascar</li>
+          </ul>
+        </div>
+        <form 
+            action="https://formspree.io/f/mqawndnd"
+            method="POST"
+            id="contactForm"
+            class="contact-form reveal"
+        >
+
+        <div class="grid-2">
+            <input type="text" name="prenom" placeholder="Votre prénom" required>
+            <input type="text" name="nom" placeholder="Votre nom" required>
+        </div>
+
+        <input type="email" name="email" placeholder="Votre email" required>
+
+        <input type="text" name="sujet" placeholder="Sujet">
+
+        <textarea name="message" rows="6" placeholder="Votre message" required></textarea>
+
+        <div class="form-actions">
+            <button type="submit" class="btn primary">Envoyer</button>
+            <button type="reset" class="btn outline">Réinitialiser</button>
+        </div>
+
+        <p id="formMessage" class="form-message" aria-live="polite"></p>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Designed by <strong>Solofotahiana</strong> with HTML CSS JS — Tous droits réservés • 2025</p>
+      <a href="#top" class="back-top" aria-label="Retour en haut">↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>

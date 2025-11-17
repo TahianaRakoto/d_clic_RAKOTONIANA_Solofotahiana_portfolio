@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulation de Dates</title>
+
+    <!-- Import Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ----- GLOBAL ----- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1b1b1b, #121212);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        /* ----- CARD ----- */
+        .container {
+            width: 90%;
+            max-width: 420px;
+            background: rgba(255,255,255,0.06);
+            padding: 28px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+            animation: slide 0.7s ease;
+        }
+
+        @keyframes slide {
+            from { transform: translateY(-18px); opacity: 0; }
+            to   { transform: translateY(0); opacity: 1; }
+        }
+
+        /* ----- TITLE ----- */
+        h2 {
+            text-align: center;
+            color: #00D1A0;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        /* ----- ILLUSTRATION ----- */
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px auto;
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 42px;
+            animation: pulse 1.8s infinite ease-in-out;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        @keyframes pulse {
+            0%   { transform: scale(1); opacity: 0.9; }
+            50%  { transform: scale(1.06); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
+        /* ----- INPUT ----- */
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: white;
+            font-size: 16px;
+            margin-bottom: 18px;
+            transition: 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #00D1A0;
+            box-shadow: 0 0 8px rgba(0,209,160,0.4);
+        }
+
+        /* ----- RESULTS ----- */
+        .result {
+            background: rgba(0,0,0,0.2);
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: 0.4s ease;
+        }
+
+        .result.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="icon">📅</div>
+
+        <h2>Manipulation de dates</h2>
+
+        <input type="text" id="date" placeholder="JJ-MM-AAAA" oninput="traiterDate()">
+
+        <p id="jour" class="result"></p>
+        <p id="mois" class="result"></p>
+        <p id="annee" class="result"></p>
+        <p id="diff" class="result"></p>
+    </div>
+
+
+    <script>
+        function traiterDate() {
+            let input = document.getElementById("date").value;
+
+            if (input.length !== 10 || !input.includes("-")) {
+                clearResults();
+                return;
+            }
+
+            let parts = input.split("-");
+            let dateSaisie = new Date(parts[2], parts[1] - 1, parts[0]);
+
+            if (isNaN(dateSaisie)) {
+                clearResults();
+                return;
+            }
+
+            afficher("jour",  "Jour : " + dateSaisie.getDate());
+            afficher("mois",  "Mois : " + (dateSaisie.getMonth() + 1));
+            afficher("annee", "Année : " + dateSaisie.getFullYear());
+
+            // Calcul de différence en jours
+            let today = new Date();
+            let diff = Math.abs(today - dateSaisie);
+            let jours = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+            afficher("diff", "Différence en jours : " + jours);
+        }
+
+        function afficher(id, texte) {
+            let el = document.getElementById(id);
+            el.textContent = texte;
+            el.classList.add("show");
+        }
+
+        function clearResults() {
+            document.querySelectorAll(".result").forEach(r => {
+                r.textContent = "";
+                r.classList.remove("show");
+            });
+        }
+    </script>
+
+</body>
+</html>

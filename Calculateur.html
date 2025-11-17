@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de prêt hypothécaire</title>
+
+    <style>
+        /* ----- STYLE GLOBAL ----- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Inter", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            
+            background: linear-gradient(135deg, #0f0f0f, #1b1b1b, #121212);
+            color: white;
+        }
+
+        /* ----- CONTAINER ----- */
+        .container {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 18px;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.08);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00D1A0;
+            font-size: 24px;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        /* ----- INPUTS ----- */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            transition: all 0.25s ease;
+        }
+
+        input:focus {
+            border-color: #00D1A0;
+            box-shadow: 0 0 8px rgba(0,209,160,0.4);
+            outline: none;
+        }
+
+        /* ----- BOUTON ----- */
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #00D1A0, #09bd90);
+            color: #042d24;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,209,160,0.22);
+        }
+
+        /* ----- MESSAGE ----- */
+        #resultat {
+            margin-top: 18px;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        #error {
+            color: #ff8080;
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Calculateur de prêt hypothécaire</h2>
+
+        <p id="error"></p>
+
+        <label for="montant">Montant du prêt (€) :</label>
+        <input type="number" id="montant" min="1" placeholder="Ex: 100000">
+
+        <label for="taux">Taux d'intérêt annuel (%) :</label>
+        <input type="number" id="taux" min="0" step="0.01" placeholder="Ex: 5">
+
+        <label for="duree">Durée (années) :</label>
+        <input type="number" id="duree" min="1" placeholder="Ex: 20">
+
+        <button onclick="calculerPret()">Calculer</button>
+
+        <p id="resultat"></p>
+    </div>
+
+    <script>
+        function calculerPret() {
+            let montant = parseFloat(document.getElementById("montant").value);
+            let tauxAnnuel = parseFloat(document.getElementById("taux").value);
+            let dureeAnnees = parseInt(document.getElementById("duree").value);
+
+            let error = document.getElementById("error");
+            let resultat = document.getElementById("resultat");
+
+            error.textContent = "";
+            resultat.textContent = "";
+
+            // Validation
+            if (isNaN(montant) || montant <= 0 ||
+                isNaN(tauxAnnuel) || tauxAnnuel < 0 ||
+                isNaN(dureeAnnees) || dureeAnnees <= 0) {
+
+                error.textContent = "⚠ Veuillez entrer des valeurs valides.";
+                return;
+            }
+
+            let tauxMensuel = tauxAnnuel / 12 / 100;
+            let n = dureeAnnees * 12;
+
+            let paiement = montant *
+                (tauxMensuel * Math.pow(1 + tauxMensuel, n)) /
+                (Math.pow(1 + tauxMensuel, n) - 1);
+
+            resultat.textContent = 
+                "💶 Paiement mensuel : " + paiement.toFixed(2) + " €";
+        }
+    </script>
+
+</body>
+</html>
